@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>  Step 1  *** TEST *** Location Info App</title>
+  </head>
+  <body>
+
+      <div id="formatted-address"></div>
+
+  <script>
+
+    // call GeoCode
+    geocode();
+console.log("hello");
+      function geocode(){
+        console.log("hello geo");
+        var location = '601 Biscayne Blvd, Miami, FL 33132';
+        axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+          params:{
+            address:location,
+            key:'AIzaSyCb7XJAeWDd5AXTQpyjeYIU93Gc7CfUpVk'
+          }
+        })
+        .then(function(response){
+          // Log full response
+          console.dir(response);
+
+          // Formatted Address
+          var formattedAddress = response.data.results[0].formatted_address;
+          // var formattedAdressOutput =`<ul class="list-group"><li class="list-group-item">${formattedAddress}</li></ul>`;
+          //   console.log("formattedAdressOutput...");
+          //   console.log(formattedAddressOutput);
+
+
+          // output to app
+          document.getElementById('formatted-address').innerHTML = `${formattedAddress}`;
+        })
+        .catch(function(error){
+          console.log("Error!!!!");
+        });
+      }
+  </script>
+
+
+  </body>
+</html>
