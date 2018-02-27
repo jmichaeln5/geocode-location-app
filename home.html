@@ -12,12 +12,14 @@
   </head>
   <body>
 
+    <br>
+    <br>
+    
     <div class="card">
       <div class="card-block">
         <h4 class="card-title">Geocode Location App</h4>
         <h6 class="card-subtitle mb-2 text-muted">Created with
-           Javascript, HTML, Axios, Google Maps API, Bootstrap</h6>
-        <br>
+           Javascript, HTML, Axios HTTP Client, Google Maps API, and Bootstrap</h6>
         <p class="card-text">Hello, thanks for stopping by. This app recieves any address inputted into the text field and makes a GET Request to the Google Maps API with the HTTP Client Axios. Input a location and learn about its global address!</p>
         <br>
         <h6 class="card-subtitle mb-2 text-muted">-Jonathan Norton</h6>
@@ -31,19 +33,19 @@
  <br>
  <br>
 
+  <div class="container">
+      <h2 id="text-center"> Enter Location: </h2>
+      <form id="location-form">
+        <input type="text" id="location-input" class="form-control form-control-lg">
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+        <div class="card-block" id="formatted-address"></div>
+        <div class="card-block" id="address-components"></div>
+        <div class="card-block" id="geometry"></div>
+  </div>
 
-<div class="container">
-    <h2 id="text-center"> Enter Location: </h2>
-    <form id="location-form">
-      <input type="text" id="location-input" class="form-control form-control-lg">
-      <br>
-      <button type="submit" class="btn btn-primary btn-block">Submit</button>
-    </form>
-      <div class="card-block" id="formatted-address"></div>
-      <div class="card-block" id="address-components"></div>
-      <div class="card-block" id="geometry"></div>
-</div>
-
+<hr>
 
   <script>
     // call GeoCode
